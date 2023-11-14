@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TASKS</title>
+  <title>Great tasks manager</title>
 </head>
 <body>
   <% @tasks.each do |task|%>
@@ -11,8 +11,20 @@
       <li><%= task.title%></li>
       <p><%= task.details %></p>
     <%# == true is not needed, it is already a BOOLEAN also the ('Completed') can go !! %>
-      <p><%= task.completed == true ? 'Completed' : 'Not completed' %></p>
+
+      <% if task.completed %>
+      <input type="checkbox" class="form-check-input" checked>
+      <% else %>
+      <input type="checkbox" class="form-check-input">
+      <% end %>
     </ol>
   <% end %>
 </body>
 </html>
+
+
+------
+
+
+      <p><%= task.completed ? 'Completed' : 'Not completed' %></p>
+      <input type="checkbox" class="form-check-input" checked>
